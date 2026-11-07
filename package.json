@@ -1,7 +1,7 @@
 {
   "name": "dsh-linux-shortcut",
-  "version": "0.1.1",
-  "description": "DeepSeek Harness 插件：给 Linux 网页端补上键盘快捷键。内核只为 web:windows / web:macos 下发默认键位，Linux 上除 Ctrl+/ 之外全部失效；本插件在浏览器侧接管同一套组合键，并在 设置 → 通用 里提供逐条改键。",
+  "version": "0.1.2",
+  "description": "DeepSeek Harness 插件：让 Linux 上的网页端拥有 Windows / macOS 端那套内置快捷键。宿主半在首页 <head> 首部注入一行脚本，使浏览器在快捷键服务读取平台之前把自己报告为 Windows，内置键位表、设置页键帽与改键因此生效；设置页另有一行指示映射是否真的生效。",
   "license": "MIT",
   "type": "module",
   "main": "lib/index.js",
