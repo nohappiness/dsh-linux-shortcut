@@ -91,6 +91,24 @@ dsh plugin --profile web remove dsh-linux-shortcut && systemctl --user restart d
 3. **设置 → 通用** 最下方「Linux 快捷键」一行显示绿色结论；**设置 → 快捷键** 里每个动作都有键帽且可改绑。
 4. 实按：`Ctrl+Alt+N` 新建会话、`Ctrl+Alt+B` 收左栏、`Ctrl+/` 打开面板。
 
+## 五点五、效果截图
+
+三张图来自同一个演示实例（`DSH_HOME` 指向临时目录，全新 profile、零第三方插件），顺序就是验证顺序：
+
+**1）没有插件时**：右上角「打开侧边栏」的提示只有文案，没有任何键位。
+
+![没有插件时的悬停提示：只有「打开侧边栏」](assets/screenshot-1-tooltip-without-plugin.png)
+
+**2）装上本插件后**：同一个按钮的提示补上了 `Ctrl + Shift + B`。
+
+![启用插件后同一按钮的提示带 Ctrl + Shift + B](assets/screenshot-2-tooltip-with-plugin.png)
+
+**3）设置 → 通用**：底部多出一行「Linux 快捷键」，说明映射已生效，并指向 Ctrl+/ 面板与改键入口。
+
+![设置 → 通用 里的 Linux 快捷键状态行](assets/screenshot-3-settings-row.png)
+
+截图对应的复现条件：`dsh --profile web` 由临时 `DSH_HOME` 启动，浏览器语言 zh-CN，视口 1440×900、`deviceScaleFactor: 2`。
+
 ## 六、已知限制
 
 - **当前 dsh 发行仍未含 `web:linux`**：`@deepseek-ai/dsh-client-shortcuts` 的 `isWebBindingAllowed()` 里 linux 不在白名单、`resolveShortcutDefault()` 也没有回退，所以在这个版本上本插件是唯一修复入口。
@@ -124,3 +142,4 @@ docs/DESIGN.md  A/B/C 三条路线的取舍记录
 | 2026-11-07 | 0.1.0 | 首版：宿主 `tapIndex` 注入平台映射；浏览器半只做状态可见性。此前草稿曾走「客户端插件读 `ShortcutRegistry` 私有字段 + 自建键位表」，因设置页/键帽不一致而废弃（见 `docs/DESIGN.md`）。 |
 | 2026-11-07 | 0.1.1 | 文档：删掉针对旧部署树的补丁叠加说明与回滚命令（那棵树已停用），改为「不改安装树」的通用表述；补「当前发行未含 `web:linux`」这条现状。代码未变。 |
 | 2026-11-07 | 0.1.2 | 修正 `package.json` 的 description：原文写「在浏览器侧接管同一套组合键」，与最终实现不符（现在是首页注入平台映射，键位仍由 core 解析）。代码未变。 |
+| 2026-11-07 | 0.1.3 | 补三张效果截图（无插件 / 启用后 / 设置页）与 `screenshots.json`，供插件市场与 awesome-dsh-plugin 收录展示。代码未变。 |
