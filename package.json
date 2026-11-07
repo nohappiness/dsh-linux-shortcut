@@ -1,0 +1,48 @@
+{
+  "name": "dsh-linux-shortcut",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 插件：给 Linux 网页端补上键盘快捷键。内核只为 web:windows / web:macos 下发默认键位，Linux 上除 Ctrl+/ 之外全部失效；本插件在浏览器侧接管同一套组合键，并在 设置 → 通用 里提供逐条改键。",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "shortcut",
+    "keybinding",
+    "keyboard",
+    "linux"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nohappiness/dsh-linux-shortcut.git"
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 test/*.test.mjs"
+  },
+  "dsh": {
+    "verifiedAgainst": "0.2.2-rc.1",
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

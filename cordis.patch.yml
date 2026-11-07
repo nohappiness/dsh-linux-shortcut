@@ -1,0 +1,5 @@
+# dsh-linux-shortcut bundle patch：插入一行同时带宿主半与浏览器半的插件。
+# row name 必须等于 npm 包名，也等于 lib/index.js 的 name 导出。
+- insert:
+    - id: linux-shortcuts
+      name: 'dsh-linux-shortcut'
